@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>折叠菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #menu .sub {
+            background: #808080;
+            color: #fff;
+            width: 100px;
+            text-align: center;
+        }
+
+        #menu .sub1 {
+            background: #999999;
+        }
+
+        #menu .sub1 li {
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            border-bottom: 1px solid #000000;
+        }
+
+        #menu .sub1 {
+            display: none;
+        }
+
+        #menu .sub1 a {
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="sub">
+        <h3>1</h3>
+        <ul class="sub1">
+            <li><a href="#">Link1</a></li>
+            <li><a href="#">Link2</a></li>
+            <li><a href="#">Link3</a></li>
+        </ul>
+    </li>
+    <li class="sub">
+        <h3>2</h3>
+        <ul class="sub1">
+            <li><a href="#">Link1</a></li>
+            <li><a href="#">Link2</a></li>
+            <li><a href="#">Link3</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var oUl = document.getElementById("menu");
+    var aLi = oUl.children;
+    for (var i = 0; i < aLi.length; i++) {
+            aLi[i].onclick = function () {
+                var oSub = this.children[1];
+                if (oSub.style.display == "block") {
+                    oSub.style.display = "none";
+                }
+                else
+                    oSub.style.display = "block";
+            };
+    }
+</script>
+</body>
+</html>
