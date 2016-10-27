@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>折叠菜单-4</title>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    a{
+        text-decoration: none;
+    }
+    ul{
+        list-style: none;
+    }
+#menu .sub{
+    background:#808080;
+    width:100px;
+}
+#menu .sub h3{
+    height:30px;
+    width:100px;
+    color:#fff;
+    line-height: 30px;
+    text-align: center;
+}
+    #menu .sub1{
+
+        display:none;
+    }
+    #menu .sub1 a{
+        line-height: 30px;
+        width:100px;
+        height:30px;
+        text-align: center;
+        line-height: 30px;
+        display:block;
+        color:#fff;
+    }
+    #menu .sub1 li{
+        width:100px;
+
+        height:30px;
+        border-bottom: 1px solid;
+        background:#999999;
+    }
+</style>
+</head>
+<body>
+<ul id ="menu">
+    <li class ="sub">
+        <h3>Line1</h3>
+        <ul class="sub1">
+            <li><a href ="#">1</a></li>
+            <li><a href ="#">2</a></li>
+            <li><a href ="#">3</a></li>
+        </ul>
+    </li>
+    <li class ="sub">
+        <h3>Line2</h3>
+        <ul class ="sub1">
+            <li><a href ="#">1</a></li>
+            <li><a href ="#">2</a></li>
+            <li><a href ="#">3</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var oUl = document.getElementById("menu");
+    var aH3 = oUl.getElementsByTagName("h3");
+    var aSub = oUl.getElementsByTagName("ul");
+    for(var i = 0;i <aH3.length;i ++) {
+        aH3[i].index = i;
+        aH3[i].onclick = function(){
+           if(aSub[ this.index ].style.display=="block") {
+               aSub[ this.index ].style.display="none";
+           }
+            else
+               aSub[ this.index ].style.display="block";
+        };
+    }
+    function next(elem){
+        do {
+            elem = elem.nextSibling;
+        }while(elem&&elem.nodeType!=1);
+        return elem;
+
+    }
+</script>
+</body>
+</html>
